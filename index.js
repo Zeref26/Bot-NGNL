@@ -17,9 +17,9 @@ bot.on('message', message => {
                     if (msg.content.includes(lanc.displayName)) {
                         let m = ""+msg.content;
                         let l = m.length;
-                        for (let i = 4; i<l; i++) {
+                        for (let i = 0; i<l; i++) {
                             if (m.charAt(i)==':') {
-                                for (let j = i+2; j<l-7; j++) {
+                                for (let j = i+2; j<l; j++) {
                                     lp += m.charAt(j);
                                 }                                
                             }
