@@ -44,6 +44,8 @@ bot.on('message', message => {
                         } else {
                             message.channel.send(lanc.displayName+" a raté son tir.");
                         }
+                        new_m = lanc.displayName+" : "+(parseInt(lp)-1);
+                        bot.channels.find('id', "555145541659525123").send(new_m);
                     } else {
                         message.channel.send("Vous n'avez pas assez de LP.");
                     }
