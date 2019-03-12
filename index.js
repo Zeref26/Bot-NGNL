@@ -52,6 +52,9 @@ bot.on('message', message => {
             message.channel.send("Vous devez indiquer une personne.");
         }
     }
+    if (message.content.toLowerCase()=="shiro") {
+        message.channel.send("C'est la best !");
+    }
 });
 
 bot.login(process.env.TOKEN);
