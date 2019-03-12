@@ -29,7 +29,6 @@ bot.on('message', message => {
             } else {
                 message.channel.send(lanc.displayName+" a raté son tir.");
             }
-            message.channel.send(tir+" = tir");
         } else {
             message.channel.send("Vous devez indiquer une personne.");
         }
