@@ -8,7 +8,7 @@ bot.on('ready', () => {
 bot.on('message', message => {
     if (message.content.startsWith('!shoot')) {
         message.delete();
-        if (message.mentions.members.size==1) {
+        if (message.mentions.members.size>=1) {
             let adv = message.mentions.members.first();
             let lanc = message.guild.members.find('id', message.author.id);
             let tir = Math.floor(Math.random() * (100)+1);
@@ -33,7 +33,7 @@ bot.on('message', message => {
     }
     if (message.content.startsWith('!illusion')) {
         message.delete();
-        if (message.mentions.members.size==1) {
+        if (message.mentions.members.size>=1) {
             let mem = message.mentions.members.first();
             let a = 0;
             let b = 0;
