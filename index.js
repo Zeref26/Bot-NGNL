@@ -13,10 +13,8 @@ bot.on('message', message => {
         if (message.mentions.members.size>=1) {
             bot.channels.get("555145541659525123").fetchMessages({limit:99}).then(messages => {
                 messages.forEach((msg) => {
-                    message.channel.send("3");
                     let lp = "";
                     if (msg.content.includes(lanc.displayName)) {
-                        message.channel.send("4");
                         let m = ""+msg.content;
                         let l = m.length-4;
                         for (let i = 4; i<l; i++) {
@@ -27,8 +25,7 @@ bot.on('message', message => {
                             }
                         }
                     }
-                    if (lp>0) {
-                        message.channel.send("6");
+                    if (parseInt(lp)>0) {
                         let tir = Math.floor(Math.random() * (100)+1);
                         if (tir>=70 && tir<90) {
                             let esq = Math.floor(Math.random() * (100)+1);
@@ -48,7 +45,6 @@ bot.on('message', message => {
                             message.channel.send(lanc.displayName+" a raté son tir.");
                         }
                     } else {
-                        message.channel.send("7");
                         message.channel.send("Vous n'avez pas assez de LP.");
                     }
                 });
