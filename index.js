@@ -27,7 +27,7 @@ bot.on('message', message => {
                     message.channel.send(adv.displayName+" évite le tir rebondissant de "+lanc.displayName+" !");
                 }
             } else {
-                message.channel.send("Flemme");
+                message.channel.send(lanc.displayName+" a raté son tir.");
             }
             message.channel.send(tir+" = tir");
         } else {
