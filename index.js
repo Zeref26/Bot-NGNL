@@ -11,10 +11,14 @@ bot.on('message', message => {
         let adv = message.mentions.members.first();
         let lanc = message.guild.members.find('id', message.author.id);
         if (message.mentions.members.size>=1) {
+            message.channel.send("1");
             bot.channels.get("555145541659525123").fetchMessages({limit:99}).then(message => {
+                message.channel.send("2");
                 message.forEach((msg) => {
+                    message.channel.send("3");
                     let lp = "";
                     if (msg.content.includes(lanc.displayName)) {
+                        message.channel.send("4");
                         let m = ""+msg.content;
                         let l = m.length-4;
                         for (let i = 4; i<l; i++) {
@@ -25,10 +29,12 @@ bot.on('message', message => {
                             }
                         }
                     } else {
+                        message.channel.send("5");
                         lp = "10";
                         bot.channels.find('id', "555145541659525123").send(lanc.displayName+" : 9");
                     }
                     if (lp>0) {
+                        message.channel.send("6");
                         let tir = Math.floor(Math.random() * (100)+1);
                         if (tir>=70 && tir<90) {
                             let esq = Math.floor(Math.random() * (100)+1);
@@ -48,6 +54,7 @@ bot.on('message', message => {
                             message.channel.send(lanc.displayName+" a raté son tir.");
                         }
                     } else {
+                        message.channel.send("7");
                         message.channel.send("Vous n'avez pas assez de LP.");
                     }
                 });
