@@ -26,7 +26,10 @@ bot.on('message', message => {
                 } else {
                     message.channel.send(adv.displayName+" évite le tir rebondissant de "+lanc.displayName+" !");
                 }
+            } else {
+                message.channel.send("Flemme");
             }
+            message.channel.send(tir+" = tir");
         } else {
             message.channel.send("Vous devez indiquer une personne.");
         }
@@ -41,7 +44,7 @@ bot.on('message', message => {
                 a = Math.floor(Math.random() * (100)+1);
                 b = Math.floor(Math.random() * (100)+1);
                 if (a<b) {
-                    message.channel.send(mem.displayName+" résiste  l'illusion.");
+                    message.channel.send(mem.displayName+" résiste à l'illusion.");
                 } else if (a>b) {
                     message.channel.send(mem.displayName+" entre dans l'illusion.");
                 }
