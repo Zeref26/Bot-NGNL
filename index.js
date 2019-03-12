@@ -52,7 +52,7 @@ bot.on('message', message => {
                     }
                 });
             });
-        } else if (args[2].toLowerCase()=="ia") {
+        } else if (args[1].toLowerCase()=="ia") {
             bot.channels.get("555145541659525123").fetchMessages({limit:99}).then(messages => {
                 messages.forEach((msg) => {
                     let lp = "";
