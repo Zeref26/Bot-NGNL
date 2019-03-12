@@ -11,10 +11,9 @@ bot.on('message', message => {
         let adv = message.mentions.members.first();
         let lanc = message.guild.members.find('id', message.author.id);
         if (message.mentions.members.size>=1) {
-            message.channel.send("1");
-            bot.channels.get("555145541659525123").fetchMessages({limit:99}).then(message => {
+            bot.channels.get("555145541659525123").fetchMessages({limit:99}).then(messages => {
                 message.channel.send("2");
-                message.forEach((msg) => {
+                messages.forEach((msg) => {
                     message.channel.send("3");
                     let lp = "";
                     if (msg.content.includes(lanc.displayName)) {
