@@ -12,7 +12,6 @@ bot.on('message', message => {
         let lanc = message.guild.members.find('id', message.author.id);
         if (message.mentions.members.size>=1) {
             bot.channels.get("555145541659525123").fetchMessages({limit:99}).then(messages => {
-                message.channel.send("2");
                 messages.forEach((msg) => {
                     message.channel.send("3");
                     let lp = "";
@@ -27,10 +26,6 @@ bot.on('message', message => {
                                 }                                
                             }
                         }
-                    } else {
-                        message.channel.send("5");
-                        lp = "10";
-                        bot.channels.find('id', "555145541659525123").send(lanc.displayName+" : 9");
                     }
                     if (lp>0) {
                         message.channel.send("6");
@@ -83,6 +78,10 @@ bot.on('message', message => {
     }
     if (message.content.toLowerCase()=="shiro") {
         message.channel.send("C'est la best !");
+    }
+    if (message.content.startsWith('!say')) {
+        const args = message.content.slice(1).trim().split(/ +/g);
+        message.channel.send(args.slice(1).join(" "));
     }
 });
 
