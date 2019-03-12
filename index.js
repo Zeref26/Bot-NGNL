@@ -7,10 +7,11 @@ bot.on('ready', () => {
 
 bot.on('message', message => {
     if (message.content.startsWith('!shoot')) {
+        const args = message.content.slice(1).trim().split(/ +/g);
         message.delete();
-        let adv = message.mentions.members.first();
         let lanc = message.guild.members.find('id', message.author.id);
         if (message.mentions.members.size>=1) {
+            let adv = message.mentions.members.first();
             bot.channels.get("555145541659525123").fetchMessages({limit:99}).then(messages => {
                 messages.forEach((msg) => {
                     let lp = "";
@@ -50,6 +51,24 @@ bot.on('message', message => {
                         }
                     }
                 });
+            });
+        } else if (args[2].toLowerCase()=="ia") {
+            bot.channels.get("555145541659525123").fetchMessages({limit:99}).then(messages => {
+                messages.forEach((msg) => {
+                    let lp = "";
+                    if (msg.content.includes(lanc.displayName)) {
+                        let m = ""+msg.content;
+                        let l = m.length;
+                        for (let i = 0; i<l; i++) {
+                            if (m.charAt(i)==':') {
+                                for (let j = i+2; j<l; j++) {
+                                    lp += m.charAt(j);
+                                }                                
+                            }
+                        }
+                        msg.edit(lanc.displayName+" : "+(parseInt(lp)+2));
+                    }
+                })
             });
         } else {
          message.channel.send("Vous devez indiquer une personne.");
