@@ -146,7 +146,7 @@ bot.on('message', message => {
     if (message.content.startsWith('!help')) {
         let lanc = message.guild.members.find('id', message.author.id);
         message.channel.send("La liste des commandes vous a été envoyée en privé.");
-        lanc.send("Voici la liste des commandes : \n\n *- !shoot @membre* Execute une tentative de tir sur @membre. Consomme 1 LP. \n *- !shoot IA* Vous tirez sur une IA. Vous regagnez 2 LP. \n *- !illusion @membre* Effectue une tentative pour faire rentrer @membre dans votre illusion. Uniquement les dhampires. \n *- !end* Finit votre partie.");
+        lanc.send("Voici la liste des commandes : \n\n **- !shoot @membre** Execute une tentative de tir sur @membre. Consomme 1 LP. \n **- !shoot IA** Vous tirez sur une IA. Vous regagnez 2 LP. \n **- !illusion @membre** Effectue une tentative pour faire rentrer @membre dans votre illusion. Uniquement les dhampires. \n **- !end** Finit votre partie.");
     }
 });
 
