@@ -166,10 +166,10 @@ bot.on('message', message => {
                     msg.delete();
                     message.channel.send("Votre partie s'est finie.");
                 }
-                if (trouve == 0) {
-                    message.channel.send("Vous n'étiez pas en partie.");
-                }
-            })
+            });
+            if (trouve == 0) {
+                message.channel.send("Vous n'étiez pas en partie.");
+            }
         });
     }
     if (message.content.startsWith('>illusion') && member.roles.exists('name', "Dhampire")) {
