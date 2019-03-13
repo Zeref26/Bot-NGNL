@@ -78,29 +78,33 @@ bot.on('message', message => {
                     bot.channels.find('id',"555145541659525123").send(new_m);
                 }
             });
-        } else if (args[1].toLowerCase()=="ia" & args.length>1) {
-            let trouve = 0;
-            bot.channels.get("555145541659525123").fetchMessages({limit:99}).then(messages => {
-                messages.forEach((msg) => {
-                    let lp = "";
-                    if (msg.content.includes(lanc.displayName)) {
-                        trouve = 1;
-                        let m = ""+msg.content;
-                        let l = m.length;
-                        for (let i = 0; i<l; i++) {
-                            if (m.charAt(i)==':') {
-                                for (let j = i+2; j<l; j++) {
-                                    lp += m.charAt(j);
-                                }                                
+        } else if (args.length>1) {
+            if (args[1].toLowerCase()=="ia") {
+                let trouve = 0;
+                bot.channels.get("555145541659525123").fetchMessages({limit:99}).then(messages => {
+                    messages.forEach((msg) => {
+                        let lp = "";
+                        if (msg.content.includes(lanc.displayName)) {
+                            trouve = 1;
+                            let m = ""+msg.content;
+                            let l = m.length;
+                            for (let i = 0; i<l; i++) {
+                                if (m.charAt(i)==':') {
+                                    for (let j = i+2; j<l; j++) {
+                                        lp += m.charAt(j);
+                                    }                                
+                                }
                             }
+                            msg.edit(lanc.displayName+" : "+(parseInt(lp)+2));
                         }
-                        msg.edit(lanc.displayName+" : "+(parseInt(lp)+2));
+                    });
+                    if (trouve == 0) {
+                        bot.channels.find('id',"555145541659525123").send(lanc.displayName+" : 12");
                     }
                 });
-                if (trouve == 0) {
-                    bot.channels.find('id',"555145541659525123").send(lanc.displayName+" : 12");
-                }
-            });
+            } else {
+                message.channel.send("Vous devez indiquer une personne.");
+            }
         } else {
             message.channel.send("Vous devez indiquer une personne.");
         }
