@@ -8,7 +8,7 @@ bot.on('ready', () => {
 bot.on('message', message => {
     let serv = bot.guilds.find('id', "505007497770434600");
     let member = serv.members.find('id', message.author.id);
-    if (message.content.startsWith('>shoot') && member.roles.exists('name', "Exceed")) {
+    if (message.content.startsWith('>shoot_n') && member.roles.exists('name', "Exceed")) {
         const args = message.content.slice(1).trim().split(/ +/g);
         message.delete();
         let lanc = message.guild.members.find('id', message.author.id);
@@ -95,7 +95,7 @@ bot.on('message', message => {
             message.channel.send("Vous devez indiquer une personne.");
         }
     }
-    if (message.content.startsWith('>shoot_reb') && member.roles.exists('name', "Exceed")) {
+    if (message.content.startsWith('>shoot_r') && member.roles.exists('name', "Exceed")) {
         const args = message.content.slice(1).trim().split(/ +/g);
         message.delete();
         let lanc = message.guild.members.find('id', message.author.id);
@@ -197,7 +197,7 @@ bot.on('message', message => {
     if (message.content.startsWith('>help')) {
         let lanc = message.guild.members.find('id', message.author.id);
         message.channel.send("La liste des commandes vous a été envoyée en privé.");
-        lanc.send("Voici la liste des commandes : \n\n **- !shoot @membre** Execute une tentative de tir sur @membre. Consomme 1 LP. \n **- !shoot_reb @membre** Execute une tentative de tir rebondissant sur @membre. Consomme 1 LP. \n **- !shoot IA** Vous tirez sur une IA. Vous regagnez 2 LP. \n **- !illusion @membre** Effectue une tentative pour faire rentrer @membre dans votre illusion. Uniquement les dhampires. \n **- !end** Finit votre partie.");
+        lanc.send("Voici la liste des commandes : \n\n **- !shoot_n @membre** Execute une tentative de tir sur @membre. Consomme 1 LP. \n **- !shoot_r @membre** Execute une tentative de tir rebondissant sur @membre. Consomme 1 LP. \n **- !shoot IA** Vous tirez sur une IA. Vous regagnez 2 LP. \n **- !illusion @membre** Effectue une tentative pour faire rentrer @membre dans votre illusion. Uniquement les dhampires. \n **- !end** Finit votre partie.");
     }
 });
 
