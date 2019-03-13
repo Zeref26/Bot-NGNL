@@ -7,7 +7,7 @@ bot.on('ready', () => {
 
 bot.on('message', message => {
     let member = message.guild.members.find('id', message.author.id);
-    if (message.content.startsWith('!shoot') && member.roles.exists('name', "Exceed")) {
+    if (message.content.startsWith('>shoot') && member.roles.exists('name', "Exceed")) {
         const args = message.content.slice(1).trim().split(/ +/g);
         message.delete();
         let lanc = message.guild.members.find('id', message.author.id);
@@ -104,7 +104,7 @@ bot.on('message', message => {
             message.channel.send("Vous devez indiquer une personne.");
         }
     }
-    if (message.content.startsWith('!end')) {
+    if (message.content.startsWith('>end')) {
         let trouve = 0;
         let lanc = message.guild.members.find('id', message.author.id);
         bot.channels.get("555145541659525123").fetchMessages({limit:99}).then(messages => {
@@ -121,7 +121,7 @@ bot.on('message', message => {
             })
         });
     }
-    if (message.content.startsWith('!illusion') && member.roles.exists('name', "Dhampire")) {
+    if (message.content.startsWith('>illusion') && member.roles.exists('name', "Dhampire")) {
         message.delete();
         if (message.mentions.members.size>=1) {
             let mem = message.mentions.members.first();
@@ -143,7 +143,7 @@ bot.on('message', message => {
     if (message.content.toLowerCase()=="shiro") {
         message.channel.send("C'est la best !");
     }
-    if (message.content.startsWith('!help')) {
+    if (message.content.startsWith('>help')) {
         let lanc = message.guild.members.find('id', message.author.id);
         message.channel.send("La liste des commandes vous a été envoyée en privé.");
         lanc.send("Voici la liste des commandes : \n\n **- !shoot @membre** Execute une tentative de tir sur @membre. Consomme 1 LP. \n **- !shoot IA** Vous tirez sur une IA. Vous regagnez 2 LP. \n **- !illusion @membre** Effectue une tentative pour faire rentrer @membre dans votre illusion. Uniquement les dhampires. \n **- !end** Finit votre partie.");
