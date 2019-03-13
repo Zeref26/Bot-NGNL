@@ -184,6 +184,7 @@ bot.on('message', message => {
     }
     if (message.content.startsWith('>end')) {
         let trouve = 0;
+        message.delete();
         let lanc = message.guild.members.find('id', message.author.id);
         bot.channels.get("555145541659525123").fetchMessages({limit:99}).then(messages => {
             messages.forEach((msg) => {
