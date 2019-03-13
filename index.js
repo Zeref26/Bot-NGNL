@@ -6,7 +6,8 @@ bot.on('ready', () => {
 });
 
 bot.on('message', message => {
-    let member = message.guild.members.find('id', message.author.id);
+    let serv = bot.guilds.find('id', "505007497770434600");
+    let member = serv.members.find('id', message.author.id);
     if (message.content.startsWith('>shoot') && member.roles.exists('name', "Exceed")) {
         const args = message.content.slice(1).trim().split(/ +/g);
         message.delete();
