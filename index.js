@@ -8,11 +8,11 @@ bot.on('ready', () => {
 bot.on('message', message => {
     let member = message.guild.members.find('id', message.author.id);
     if (message.content.startsWith('!shoot') && member.roles.exists('name', "RP")) {
-        let trouve = 0;
         const args = message.content.slice(1).trim().split(/ +/g);
         message.delete();
         let lanc = message.guild.members.find('id', message.author.id);
         if (message.mentions.members.size>=1) {
+            let trouve = 0;
             let adv = message.mentions.members.first();
             bot.channels.get("555145541659525123").fetchMessages({limit:99}).then(messages => {
                 messages.forEach((msg) => {
