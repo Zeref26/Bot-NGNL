@@ -31,7 +31,7 @@ bot.on('message', message => {
                         }
                         if (parseInt(lp)>0) {
                             let tir = Math.floor(Math.random() * (100)+1);
-                            if (tir>=70 && tir<90) {
+                            if (tir>=50) {
                                 let esq = Math.floor(Math.random() * (100)+1);
                                 if (esq < 50) {
                                     message.channel.send(lanc.displayName+" réussit son tir.");
@@ -50,7 +50,7 @@ bot.on('message', message => {
                 });
                 if (trouve == 0) {
                     let tir = Math.floor(Math.random() * (100)+1);
-                    if (tir>=70 && tir<90) {
+                    if (tir>=50) {
                         let esq = Math.floor(Math.random() * (100)+1);
                         if (esq < 50) {
                             message.channel.send(lanc.displayName+" réussit son tir.");
@@ -118,9 +118,9 @@ bot.on('message', message => {
                         }
                         if (parseInt(lp)>0) {
                             let tir = Math.floor(Math.random() * (100)+1);
-                            if (tir>=90) {
+                            if (tir>=66) {
                                 let esq = Math.floor(Math.random() * (100)+1);
-                                if (esq < 80) {
+                                if (esq < 75) {
                                     message.channel.send(lanc.displayName+" réussit son tir rebondissant.");
                                 } else {
                                     message.channel.send(adv.displayName+" évite le tir rebondissant de "+lanc.displayName+" !");
@@ -137,9 +137,9 @@ bot.on('message', message => {
                 });
                 if (trouve == 0) {
                     let tir = Math.floor(Math.random() * (100)+1);
-                    if (tir>=90) {
+                    if (tir>=66) {
                         let esq = Math.floor(Math.random() * (100)+1);
-                        if (esq < 80) {
+                        if (esq < 75) {
                             message.channel.send(lanc.displayName+" réussit son tir rebondissant.");
                         } else {
                             message.channel.send(adv.displayName+" évite le tir rebondissant de "+lanc.displayName+" !");
