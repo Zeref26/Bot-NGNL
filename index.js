@@ -7,7 +7,7 @@ bot.on('ready', () => {
 
 bot.on('message', message => {
     let member = message.guild.members.find('id', message.author.id);
-    if (message.content.startsWith('!shoot') && member.roles.exists('name', "RP")) {
+    if (message.content.startsWith('!shoot') && member.roles.exists('name', "Exceed")) {
         const args = message.content.slice(1).trim().split(/ +/g);
         message.delete();
         let lanc = message.guild.members.find('id', message.author.id);
