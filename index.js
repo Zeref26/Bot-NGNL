@@ -77,7 +77,7 @@ bot.on('message', message => {
                     bot.channels.find('id',"555145541659525123").send(new_m);
                 }
             });
-        } else if (args[1].toLowerCase()=="ia" && args.length>1) {
+        } else if (args[1].toLowerCase()=="ia" & args.length>1) {
             let trouve = 0;
             bot.channels.get("555145541659525123").fetchMessages({limit:99}).then(messages => {
                 messages.forEach((msg) => {
