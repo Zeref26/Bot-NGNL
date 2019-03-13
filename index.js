@@ -121,7 +121,7 @@ bot.on('message', message => {
             })
         });
     }
-    if (message.content.startsWith('!illusion')) {
+    if (message.content.startsWith('!illusion') && member.roles.exists('name', "Dhampire")) {
         message.delete();
         if (message.mentions.members.size>=1) {
             let mem = message.mentions.members.first();
@@ -143,9 +143,10 @@ bot.on('message', message => {
     if (message.content.toLowerCase()=="shiro") {
         message.channel.send("C'est la best !");
     }
-    if (message.content.startsWith('!say')) {
-        const args = message.content.slice(1).trim().split(/ +/g);
-        message.channel.send(args.slice(1).join(" "));
+    if (message.content.startsWith('!help')) {
+        let lanc = message.guild.members.find('id', message.author.id);
+        message.channel.send("La liste des commandes vous a été envoyée en privé.");
+        lanc.send("Voici la liste des commandes : \n\n *- !shoot @membre* Execute une tentative de tir sur @membre. Consomme 1 LP. \n *- !shoot IA* Vous tirez sur une IA. Vous regagnez 2 LP. \n *- !illusion @membre* Effectue une tentative pour faire rentrer @membre dans votre illusion. Uniquement les dhampires. \n *- !end* Finit votre partie.");
     }
 });
 
