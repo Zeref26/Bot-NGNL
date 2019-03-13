@@ -53,29 +53,29 @@ bot.on('message', message => {
                             message.channel.send("Vous n'avez pas assez de LP.");
                         }
                     }
-                    if (trouve == 0) {
-                        let tir = Math.floor(Math.random() * (100)+1);
-                        if (tir>=70 && tir<90) {
-                            let esq = Math.floor(Math.random() * (100)+1);
-                            if (esq < 50) {
-                                message.channel.send(lanc.displayName+" réussit son tir.");
-                            } else {
-                                message.channel.send(adv.displayName+" évite le tir de "+lanc.displayName);
-                            }
-                        } else if (tir>=90) {
-                            let esq = Math.floor(Math.random() * (100)+1);
-                            if (esq < 80) {
-                                message.channel.send(lanc.displayName+" réussit son tir rebondissant.");
-                            } else {
-                                message.channel.send(adv.displayName+" évite le tir rebondissant de "+lanc.displayName+" !");
-                            }
-                        } else {
-                            message.channel.send(lanc.displayName+" a raté son tir.");
-                        }
-                        new_m = lanc.displayName+" : 9";
-                        bot.channels.find('id',"555145541659525123").send(new_m);
-                    }
                 });
+                if (trouve == 0) {
+                    let tir = Math.floor(Math.random() * (100)+1);
+                    if (tir>=70 && tir<90) {
+                        let esq = Math.floor(Math.random() * (100)+1);
+                        if (esq < 50) {
+                            message.channel.send(lanc.displayName+" réussit son tir.");
+                        } else {
+                            message.channel.send(adv.displayName+" évite le tir de "+lanc.displayName);
+                        }
+                    } else if (tir>=90) {
+                        let esq = Math.floor(Math.random() * (100)+1);
+                        if (esq < 80) {
+                            message.channel.send(lanc.displayName+" réussit son tir rebondissant.");
+                        } else {
+                            message.channel.send(adv.displayName+" évite le tir rebondissant de "+lanc.displayName+" !");
+                        }
+                    } else {
+                        message.channel.send(lanc.displayName+" a raté son tir.");
+                    }
+                    new_m = lanc.displayName+" : 9";
+                    bot.channels.find('id',"555145541659525123").send(new_m);
+                }
             });
         } else if (args[1].toLowerCase()=="ia") {
             let trouve = 0;
@@ -95,10 +95,10 @@ bot.on('message', message => {
                         }
                         msg.edit(lanc.displayName+" : "+(parseInt(lp)+2));
                     }
-                    if (trouve == 0) {
-                        bot.channels.find('id',"555145541659525123").send(lanc.displayName+" : 12");
-                    }
-                })
+                });
+                if (trouve == 0) {
+                    bot.channels.find('id',"555145541659525123").send(lanc.displayName+" : 12");
+                }
             });
         } else {
          message.channel.send("Vous devez indiquer une personne.");
