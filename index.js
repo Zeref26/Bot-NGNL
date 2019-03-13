@@ -179,6 +179,7 @@ bot.on('message', message => {
             if (trouve == 0) {
                 bot.channels.find('id',"555145541659525123").send(lanc.displayName+" : 12");
             }
+            message.channel.send("Vous regagnez 2 LP.")
         });
     }
     if (message.content.startsWith('>end')) {
