@@ -183,6 +183,7 @@ bot.on('message', message => {
                 }
             });
         }
+    }
     if (message.content.startsWith('>end')) {
         let trouve = 0;
         let lanc = message.guild.members.find('id', message.author.id);
