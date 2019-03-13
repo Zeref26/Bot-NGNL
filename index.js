@@ -104,6 +104,23 @@ bot.on('message', message => {
          message.channel.send("Vous devez indiquer une personne.");
         }
     }
+    if (message.content.startsWith('!end')) {
+        let trouve = 0;
+        let lanc = message.guild.members.find('id', message.author.id);
+        bot.channels.get("555145541659525123").fetchMessages({limit:99}).then(messages => {
+            messages.forEach((msg) => {
+                let lp = "";
+                if (msg.content.includes(lanc.displayName)) {
+                    trouve = 1;
+                    msg.delete();
+                    message.channel.send("Votre partie s'est finie.");
+                }
+                if (trouve == 0) {
+                    message.channel.send("Vous n'étiez pas en partie.");
+                }
+            })
+        });
+    }
     if (message.content.startsWith('!illusion')) {
         message.delete();
         if (message.mentions.members.size>=1) {
