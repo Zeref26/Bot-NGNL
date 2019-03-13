@@ -156,33 +156,30 @@ bot.on('message', message => {
         }
     }
     if (message.content.startsWith('>shoot_IA') && member.roles.exists('name', "Exceed")) {
-        const args = message.content.slice(1).trim().split(/ +/g);
         message.delete();
         let lanc = message.guild.members.find('id', message.author.id);
-        if (message.mentions.members.size>=1 && args.length>1) {
-            let trouve = 0;
-            bot.channels.get("555145541659525123").fetchMessages({limit:99}).then(messages => {
-                messages.forEach((msg) => {
-                    let lp = "";
-                    if (msg.content.includes(lanc.displayName)) {
-                        trouve = 1;
-                        let m = ""+msg.content;
-                        let l = m.length;
-                        for (let i = 0; i<l; i++) {
-                            if (m.charAt(i)==':') {
-                                for (let j = i+2; j<l; j++) {
-                                    lp += m.charAt(j);
-                                }                                
-                            }
+        let trouve = 0;
+        bot.channels.get("555145541659525123").fetchMessages({limit:99}).then(messages => {
+            messages.forEach((msg) => {
+                let lp = "";
+                if (msg.content.includes(lanc.displayName)) {
+                    trouve = 1;
+                    let m = ""+msg.content;
+                    let l = m.length;
+                    for (let i = 0; i<l; i++) {
+                        if (m.charAt(i)==':') {
+                            for (let j = i+2; j<l; j++) {
+                                lp += m.charAt(j);
+                            }                                
                         }
-                        msg.edit(lanc.displayName+" : "+(parseInt(lp)+2));
                     }
-                });
-                if (trouve == 0) {
-                    bot.channels.find('id',"555145541659525123").send(lanc.displayName+" : 12");
+                    msg.edit(lanc.displayName+" : "+(parseInt(lp)+2));
                 }
             });
-        }
+            if (trouve == 0) {
+                bot.channels.find('id',"555145541659525123").send(lanc.displayName+" : 12");
+            }
+        });
     }
     if (message.content.startsWith('>end')) {
         let trouve = 0;
