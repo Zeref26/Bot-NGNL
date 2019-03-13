@@ -11,7 +11,7 @@ bot.on('message', message => {
         const args = message.content.slice(1).trim().split(/ +/g);
         message.delete();
         let lanc = message.guild.members.find('id', message.author.id);
-        if (message.mentions.members.size>=1) {
+        if (message.mentions.members.size>=1 && args.length>1) {
             let trouve = 0;
             let adv = message.mentions.members.first();
             bot.channels.get("555145541659525123").fetchMessages({limit:99}).then(messages => {
@@ -101,7 +101,7 @@ bot.on('message', message => {
                 }
             });
         } else {
-         message.channel.send("Vous devez indiquer une personne.");
+            message.channel.send("Vous devez indiquer une personne.");
         }
     }
     if (message.content.startsWith('!end')) {
