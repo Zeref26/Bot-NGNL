@@ -82,33 +82,6 @@ bot.on('message', message => {
                     bot.channels.find('id',"555145541659525123").send(new_m);
                 }
             });
-        } else if (args.length>1) {
-            if (args[1].toLowerCase()=="ia") {
-                let trouve = 0;
-                bot.channels.get("555145541659525123").fetchMessages({limit:99}).then(messages => {
-                    messages.forEach((msg) => {
-                        let lp = "";
-                        if (msg.content.includes(lanc.displayName)) {
-                            trouve = 1;
-                            let m = ""+msg.content;
-                            let l = m.length;
-                            for (let i = 0; i<l; i++) {
-                                if (m.charAt(i)==':') {
-                                    for (let j = i+2; j<l; j++) {
-                                        lp += m.charAt(j);
-                                    }                                
-                                }
-                            }
-                            msg.edit(lanc.displayName+" : "+(parseInt(lp)+2));
-                        }
-                    });
-                    if (trouve == 0) {
-                        bot.channels.find('id',"555145541659525123").send(lanc.displayName+" : 12");
-                    }
-                });
-            } else {
-                message.channel.send("Vous devez indiquer une personne.");
-            }
         } else {
             message.channel.send("Vous devez indiquer une personne.");
         }
@@ -259,7 +232,7 @@ bot.on('message', message => {
     if (message.content.startsWith('>help')) {
         let lanc = message.guild.members.find('id', message.author.id);
         message.channel.send("La liste des commandes vous a été envoyée en privé.");
-        lanc.send("Voici la liste des commandes : \n\n **- >shoot_n @membre** Execute une tentative de tir sur @membre. Consomme 1 LP. \n **- >shoot_r @membre** Execute une tentative de tir rebondissant sur @membre. Consomme 1 LP. \n **- >shoot_IA** Vous tirez sur une IA. Vous regagnez 2 LP. \n **- >illusion @membre** Effectue une tentative pour faire rentrer @membre dans votre illusion. Uniquement les dhampires. \n **- >end** Finit votre partie.");
+        lanc.send("Voici la liste des commandes : \n\n **- >shoot_n @membre** Execute une tentative de tir sur @membre. Consomme 1 LP. \n **- >shoot_r @membre** Execute une tentative de tir rebondissant sur @membre. Consomme 1 LP. \n **- >shoot_IA** Vous tirez sur une IA. Vous regagnez 2 LP. \n **- >illusion @membre** Effectue une tentative pour faire rentrer @membre dans votre illusion. Uniquement les dhampires. \n **- >end** Finit votre partie.\n **- >dess** SURPRIIIISE !!!");
     }
     if (message.content.startsWith('>dess')) {
         message.delete();
@@ -315,6 +288,87 @@ bot.on('message', message => {
                 break ;
             case 25 : message.channel.send("BAKA BAKA BAKA, dess !");
                 break ;
+        }
+    }
+    if (message.content.startsWith('>shoot_f')) {
+        message.delete();
+        let lanc = message.guild.members.find('id', message.author.id);
+        if (message.mentions.members.size>=1 && args.length>1) {
+            let trouve = 0;
+            let adv = message.mentions.members.first();
+            bot.channels.get("555145541659525123").fetchMessages({limit:99}).then(messages => {
+                messages.forEach((msg) => {
+                    let lp = "";
+                    if (msg.content.includes(lanc.displayName)) {
+                        trouve = 1;
+                        let m = ""+msg.content;
+                        let l = m.length;
+                        for (let i = 0; i<l; i++) {
+                            if (m.charAt(i)==':') {
+                                for (let j = i+2; j<l; j++) {
+                                    lp += m.charAt(j);
+                                }                                
+                            }
+                        }
+                        let trouve2 = 0;
+                        bot.channels.get("555145541659525123").fetchMessages({limit:99}).then(messages2 => {
+                            messages2.forEach((msg2) => {
+                                let lp2 = "";
+                                if (msg.content.includes(adv.displayName)) {
+                                    trouve2 = 1;
+                                    let m2 = ""+msg.content;
+                                    let l2 = m.length;
+                                    for (let i2 = 0; i2<l2; i2++) {
+                                        if (m2.charAt(i2)==':') {
+                                            for (let j2 = i2+2; j2<l2; j2++) {
+                                                lp2 += m2.charAt(j2);
+                                            }                                
+                                        }
+                                    }
+                                    msg.edit(lanc.displayName+" : "+(parseInt(lp)-1));
+                                    msg2.edit(adv.displayName+" : "+(parseInt(lp)+1));
+                                    message.channel.send(lanc.displayName+" a tiré sur son allié "+adv.displayName+".\n"+lanc.displayName+"perd 1 LP et "+adv.displayName+" en gagne 1.");
+                                }
+                            });
+                        });
+                        if (trouve2==0) {
+                            msg.edit(lanc.displayName+" : "+(parseInt(lp)-1));
+                            bot.channels.find('id',"555145541659525123").send(adv.displayName+" : 11");
+                            message.channel.send(lanc.displayName+" a tiré sur son allié "+adv.displayName+".\n"+lanc.displayName+"perd 1 LP et "+adv.displayName+" en gagne 1.");
+                        }
+                    }
+                });
+            });
+            if (trouve==0) {
+                let trouve2 = 0;
+                bot.channels.get("555145541659525123").fetchMessages({limit:99}).then(messages2 => {
+                    messages2.forEach((msg2) => {
+                        let lp2 = "";
+                        if (msg.content.includes(adv.displayName)) {
+                            trouve2 = 1;
+                            let m2 = ""+msg.content;
+                            let l2 = m.length;
+                            for (let i2 = 0; i2<l2; i2++) {
+                                if (m2.charAt(i2)==':') {
+                                    for (let j2 = i2+2; j2<l2; j2++) {
+                                        lp2 += m2.charAt(j2);
+                                    }                                
+                                }
+                            }
+                            bot.channels.find('id',"555145541659525123").send(lanc.displayName+" : 9");
+                            msg2.edit(adv.displayName+" : "+(parseInt(lp)+1));
+                            message.channel.send(lanc.displayName+" a tiré sur son allié "+adv.displayName+".\n"+lanc.displayName+"perd 1 LP et "+adv.displayName+" en gagne 1.");
+                        }
+                    });
+                });
+                if (trouve2==0) {
+                    bot.channels.find('id',"555145541659525123").send(lanc.displayName+" : 9");
+                    bot.channels.find('id',"555145541659525123").send(adv.displayName+" : 11");
+                    message.channel.send(lanc.displayName+" a tiré sur son allié "+adv.displayName+".\n"+lanc.displayName+"perd 1 LP et "+adv.displayName+" en gagne 1.");
+                }
+            }
+        } else {
+            message.channel.send("Vous devez indiquer une personne.");
         }
     }
 });
