@@ -295,7 +295,7 @@ bot.on('message', message => {
                 break ;
             case 15 : message.channel.send("Tu cuisines bien, je t’aime bien, dess.");
                 break ;                            
-            case 16 : message.channel.send("Je peux manger ce poisson là bas, dess ? Quoi ? Une sirène, dess ? **Grimace de dégoût.**");
+            case 16 : message.channel.send("Je peux manger ce poisson là bas, dess ? Quoi ? Une seirène, dess ? **Grimace de dégoût.**");
                 break ;
             case 17 : message.channel.send("Regarde, regarde, dess. Un pigeon, dess. **Dit elle en pointant du doigt une Flügel.**");
                 break ;
