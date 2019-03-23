@@ -262,6 +262,7 @@ bot.on('message', message => {
         lanc.send("Voici la liste des commandes : \n\n **- >shoot_n @membre** Execute une tentative de tir sur @membre. Consomme 1 LP. \n **- >shoot_r @membre** Execute une tentative de tir rebondissant sur @membre. Consomme 1 LP. \n **- >shoot_IA** Vous tirez sur une IA. Vous regagnez 2 LP. \n **- >illusion @membre** Effectue une tentative pour faire rentrer @membre dans votre illusion. Uniquement les dhampires. \n **- >end** Finit votre partie.");
     }
     if (message.content.startsWith('>dess')) {
+        message.delete();
         let num = Math.floor(Math.random()*25 + 1);
         switch (num) {
             case 1 : message.channel.send("Tu fais quoi là à me caresser, dess ? Mais continue crétin, dess.");
