@@ -232,7 +232,7 @@ bot.on('message', message => {
     if (message.content.startsWith('>help')) {
         let lanc = message.guild.members.find('id', message.author.id);
         message.channel.send("La liste des commandes vous a été envoyée en privé.");
-        lanc.send("Voici la liste des commandes : \n\n **- >shoot_n @membre** Execute une tentative de tir sur @membre. Consomme 1 LP. \n **- >shoot_r @membre** Execute une tentative de tir rebondissant sur @membre. Consomme 1 LP. \n **- >shoot_IA** Vous tirez sur une IA. Vous regagnez 2 LP. \n **- >illusion @membre** Effectue une tentative pour faire rentrer @membre dans votre illusion. Uniquement les dhampires. \n **- >end** Finit votre partie.\n **- >dess** SURPRIIIISE !!!");
+        lanc.send("Voici la liste des commandes : \n\n **- >shoot_n @membre** Execute une tentative de tir sur @membre. Consomme 1 LP. \n **- >shoot_r @membre** Execute une tentative de tir rebondissant sur @membre. Consomme 1 LP. \n **- >shoot_IA** Vous tirez sur une IA. Vous regagnez 2 LP.\n **- >shoot_f @membre** Vous tirez sur un allié. Vous perdez 1 LP et votre allié en gagne 1. \n **- >illusion @membre** Effectue une tentative pour faire rentrer @membre dans votre illusion. Uniquement les dhampires. \n **- >end** Finit votre partie.\n **- >dess** SURPRIIIISE !!!");
     }
     if (message.content.startsWith('>dess')) {
         message.delete();
