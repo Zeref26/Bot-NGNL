@@ -109,7 +109,7 @@ bot.on('message', message => {
                         }
                         if (parseInt(lp)>0) {
                             let tir = Math.floor(Math.random() * (100)+1);
-                            if (tir>=66) {
+                            if (tir>=75) {
                                 let esq = Math.floor(Math.random() * (100)+1);
                                 if (esq < 75) {
                                     let num = Math.floor(Math.random() * 3 + 1);
@@ -136,7 +136,7 @@ bot.on('message', message => {
                 });
                 if (trouve == 0) {
                     let tir = Math.floor(Math.random() * (100)+1);
-                    if (tir>=66) {
+                    if (tir>=75) {
                         let esq = Math.floor(Math.random() * (100)+1);
                         if (esq < 75) {
                             let num = Math.floor(Math.random() * 3 + 1);
@@ -186,7 +186,7 @@ bot.on('message', message => {
             if (trouve == 0) {
                 bot.channels.find('id',"555145541659525123").send(lanc.displayName+" : 12");
             }
-            message.channel.send("Vous regagnez 2 LP.")
+            message.channel.send(lanc.displayName+" a tiré sur une IA. Il regagne 2 LP.")
         });
     }
     if (message.content.startsWith('>end')) {
