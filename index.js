@@ -371,6 +371,17 @@ bot.on('message', message => {
             message.channel.send("Vous devez indiquer une personne.");
         }
     }
+    if (message.content.startsWith("-say")) {
+        if(message.guild.members.find('id',message.author.id).roles.exists('name',"admin")) {
+            message.delete();
+            const args = message.content.slice(1).trim().split(/ +/g);
+            if (args.length>=2) {
+                message.channel.send(args.slice(1).join(" "));
+            } else {
+                message.channel.send("Vous n'avez pas mis le texte à dire.");
+            }
+        }
+    }
 });
 
 bot.login(process.env.TOKEN);
