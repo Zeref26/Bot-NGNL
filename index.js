@@ -5,6 +5,10 @@ bot.on('ready', () => {
     console.log('Bot is ready !');
 });
 
+bot.on('guildMemberAdd', (member) => {
+    bot.guilds.finf('id', "505007497770434600").channels.find('id', "505007497770434602").send(member+"Bienvenue dans notre humble demeure, dess. Si tu as envie de connaitre la suite l'animé en light novel, alors je te renvoie vers le lien épinglé dans #『annonces』, dess.");
+
+});
 bot.on('message', message => {
 
     let serv = bot.guilds.find('id', "505007497770434600");
