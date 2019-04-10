@@ -6,7 +6,7 @@ bot.on('ready', () => {
 });
 
 bot.on('guildMemberAdd', (member) => {
-    if (member.guilds.exists('id", "505007497770434600")) {
+    if (member.guilds.exists('id', "505007497770434600")) {
         bot.guilds.finf('id', "505007497770434600").channels.find('id', "505007497770434602").send(member+"Bienvenue dans notre humble demeure, dess. Si tu as envie de connaitre la suite l'animé en light novel, alors je te renvoie vers le lien épinglé dans #『annonces』, dess.");
     }
 });
