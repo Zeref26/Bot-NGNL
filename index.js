@@ -6,8 +6,8 @@ bot.on('ready', () => {
 });
 
 bot.on('guildMemberAdd', (member) => {
-    if (member.guild.channels.exists('id',"505007497770434602")) {
-        bot.guilds.find('id',"505007497770434600").channels.find('id',"505007497770434602").send(member+"Bienvenue dans notre humble demeure, dess. Si tu as envie de connaitre la suite de l'animé en light novel, alors je te renvoie vers le lien épinglé dans "+bot.guilds.find('id',"505007497770434600").channels.find('id',"505007497770434602")+", dess.");
+    if (member.guild.channels.exists('id',"505080180000292864")) {
+        bot.guilds.find('id',"505007497770434600").channels.find('id',"505080180000292864").send(member+"Bienvenue dans notre humble demeure, dess. Si tu as envie de connaitre la suite l'animé en light novel, alors je te renvoie vers le lien épinglé dans #『annonces』, dess.");
     }
 });
 
@@ -375,17 +375,6 @@ bot.on('message', message => {
             }
         } else {
             message.channel.send("Vous devez indiquer une personne.");
-        }
-    }
-    if (message.content.startsWith(">say")) {
-        if(message.guild.members.find('id',message.author.id).roles.exists('name',"admin")) {
-            message.delete();
-            const args = message.content.slice(1).trim().split(/ +/g);
-            if (args.length>=2) {
-                message.channel.send(args.slice(1).join(" "));
-            } else {
-                message.channel.send("Vous n'avez pas mis le texte à dire.");
-            }
         }
     }
 });
